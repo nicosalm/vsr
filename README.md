@@ -1,8 +1,24 @@
-This project is based on "Viewstamped Replication Revisited" by Liskov and Cowling and provides a
-reliable, crash-fault tolerant replication system that maintains consistency in the presence of
-node failures without requiring disk writes during normal operation.
+# Viewstamped Replication in Rust
 
-VSR enables state machine replication across a configurable cluster of nodes, ensuring that
-operations execute in the same order at all replicas despite concurrent client requests and node
-failures. The implementation includes the core protocol components: normal case processing, view
-changes for leader election, node recovery, and reconfiguration.
+This project implements Viewstamped Replication (VR) based on Liskov and Cowling's paper. It provides a reliable, crash-fault tolerant replication system that maintains consistency when nodes fail, without requiring disk writes during normal operation.
+
+VSR enables state machine replication across a cluster, ensuring operations execute in the same order at all replicas despite concurrent requests and failures. The implementation includes:
+
+- Normal case processing for client requests
+- View changes when a primary fails
+- Node recovery for rejoining the cluster
+- Reconfiguration to change cluster membership
+
+## Project Status
+
+Currently implementing the core replica logic and testing framework. More components will be added as development progresses.
+
+## References
+
+- Liskov, B., & Cowling, J. (2012). [Viewstamped Replication Revisited](http://pmg.csail.mit.edu/papers/vr-revisited.pdf). MIT CSAIL.
+- Castro, M., & Liskov, B. (1999). [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf). OSDI.
+- Oki, B. M., & Liskov, B. (1988). Viewstamped Replication: A New Primary Copy Method to Support Highly-Available Distributed Systems. PODC.
+
+## License
+
+MIT License - see LICENSE for details.
